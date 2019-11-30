@@ -1,0 +1,29 @@
+<html>
+<head></head>
+<body>
+<form action="Host.php" method="post">
+<pre>
+CLIENT NAME  : <input type="text" name="name">
+Phone Number : <input type = "number" name="phone">
+Email        : <input type= "text" name="email">
+CheckIn      : <input type="time" name = "in">
+CheckOut     : <input type = "time" name = "out">
+Your Name    : <input type = "text" name="host">
+ADDRESS      : <input type = "text" name= "address"></br>
+     <input type="submit" value="SAVE INFORMATION" >
+<pre>
+</form>
+</body>
+</html>
+<?php
+$name=$_POST['name'];
+$phone=$_POST['phone'];
+$email=$_POST['email'];
+$host=$_POST['host'];
+$in = $_POST["in"];
+$out = $_POST["out"];
+$address= $_POST["address"];
+$msg = " Name: ".$name."</br> Phone : ".$phone."</br> Check-In: ".$in."<br> Check-Out: ".$out."<br> Host Name :".$host."<br> Address: ".$address;
+$msg = wordwrap($msg,150);
+mail($mail,"My subject",$msg);
+?>
